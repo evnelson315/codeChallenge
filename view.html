@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Movie Database</title>
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</head>
+<body>
+	
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Welcome</h1>
+			<h3>Your Home Movie Database</h3>
+			<hr>
+			<a href="/add"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-plus"></span> Add New Movie</button></a>
+			<a href="/all"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span> All Movies</button></a>
+		</div>
+		<div class="row">
+
+			<div class="col-lg-12">
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title"><strong>Movie Search</strong></h3>
+					</div>
+					<div class="panel-body">
+						<input type="text" id="movieSearch" class="form-control" >
+						<br>
+						<div class="text-right">
+							<button type="submit" class="btn btn-primary btn-md" id="searchBtn"></span><span class="glyphicon glyphicon-search"></span> Havent't we seen this before?</button>
+							
+						</div>
+					</div>
+				</div>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title"><strong>Movie Statistics</strong></h3>
+					</div>
+					<div class="panel-body">
+						<div class="well">
+							<h2 id="name"></h2>
+							<div id="stats">
+								<h3><strong>Year:</strong> <span id="year"></span></h3>
+								<h3><strong>Rating:</strong> <span id="rating"></span></h3>
+								<h3><strong>Actors:</strong> <span id="actors"></span></h3>
+								<h3><strong>Genre:</strong> <span id="genre"></span></h3>
+								<!-- <h3><strong>Plot:</strong> <span id="forcePoints"></span></h3> -->
+								<div class="text-right">
+							<button type="deleteBtn" class="btn btn-primary btn-md" id="deleteBtn"></span><span class="glyphicon glyphicon-search"></span> Delete this movie</button>
+							
+						</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>			
+		</div>
+	</div>
+
+	<script type="text/javascript">
+
+		$('#deleteBtn').on("click", function(){
+
+			var searchedMovie = $("#movieSearch").val().trim();
+
+			searchedMovie = searchedMovie.replace(/\s+/g, '').toLowerCase();
+
+			var currentURL = window.location.origin;
+console.log('success  deleted')
+			$.ajax({ 
+				method: "DELETE",
+				url: currentURL + "/api/" + searchedMovie
+
+			})
+			.done(function( data ) {
+				// console.log('success  deleted')
+			});
+	
+		});	
+
+
+
+		$('#searchBtn').on("click", function(){
+
+			var searchedMovie = $("#movieSearch").val().trim();
+
+			searchedMovie = searchedMovie.replace(/\s+/g, '').toLowerCase();
+
+			var currentURL = window.location.origin;
+
+			$.get( currentURL + "/api/" + searchedMovie, function( data ) {
+
+				// console.log(data);
+				if(data == false){
+					$("#name").text("This is not in your database. ");
+					$("#stats").hide();
+				}
+				else {
+					$("#stats").show();
+					$("#name").text(data.name);
+					$("#year").text(data.year);
+					$("#rating").text(data.rating);
+					$("#actors").text(data.actors);
+					$("#genre").text(data.genre);					
+				}
+
+			});
+
+		});	
+
+	</script>
+
+</body>
+</html>
