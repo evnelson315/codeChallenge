@@ -65,16 +65,31 @@ app.delete('/api/:characters?', function(req, res){
 	console.log('This logs out in my terminal')
 	console.log(req.params.characters);
 
-
-	var characters = [];
-	// inside .delete 
-	var indexToRemove = characters.indexOf(req.params.characters);
-	console.log(characters.indexOf(req.params.characters));
-	if (indexToRemove > 0)
+	var deletedCharacter = (req.params.characters.replace(/\s+/g, ''));
+	console.log(deletedCharacter);
+	 
+	var indexToRemove = deletedCharacter.indexOf(req.params.characters);
+	console.log(indexToRemove);
+	if (indexToRemove == 0)
 	 {
     characters.splice(indexToRemove, 1);
 		}
 });
+
+// app.delete('/api/:characters?', function(req, res){
+// 	console.log('This logs out in my terminal')
+// 	console.log(req.params.characters);
+
+
+// 	var characters = [];
+// 	// inside .delete 
+// 	var indexToRemove = characters.indexOf(req.params.characters);
+// 	console.log(characters.indexOf(req.params.characters));
+// 	if (indexToRemove > 0)
+// 	 {
+//     characters.splice(indexToRemove, 1);
+// 		}
+// });
 
 // Create New Characters - takes in JSON input
 app.post('/api/new', function(req, res){
