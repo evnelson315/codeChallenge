@@ -62,34 +62,18 @@ app.get('/api/:characters?', function(req, res){
 })
 
 app.delete('/api/:characters?', function(req, res){
-	console.log('This logs out in my terminal')
-	console.log(req.params.characters);
+    var deletedCharacter = req.params.characters.replace(/\s+/g, '').toLowerCase();
+    console.log(deletedCharacter);
 
-	var deletedCharacter = (req.params.characters.replace(/\s+/g, ''));
-	console.log(deletedCharacter);
-	 
-	var indexToRemove = deletedCharacter.indexOf(req.params.characters);
-	console.log(indexToRemove);
-	if (indexToRemove == 0)
-	 {
-    characters.splice(indexToRemove, 1);
-		}
+    for (var i = 0; i < characters.length; i++) {
+        if (characters[i].routeName == deletedCharacter) {
+            console.log(deletedCharacter);
+            characters.splice(i, 1);
+        }
+    }
+    // console.log(req.params.characters)
 });
 
-// app.delete('/api/:characters?', function(req, res){
-// 	console.log('This logs out in my terminal')
-// 	console.log(req.params.characters);
-
-
-// 	var characters = [];
-// 	// inside .delete 
-// 	var indexToRemove = characters.indexOf(req.params.characters);
-// 	console.log(characters.indexOf(req.params.characters));
-// 	if (indexToRemove > 0)
-// 	 {
-//     characters.splice(indexToRemove, 1);
-// 		}
-// });
 
 // Create New Characters - takes in JSON input
 app.post('/api/new', function(req, res){
