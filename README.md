@@ -4,7 +4,7 @@
 
 To visit my app, please go: 
 
-<a href="/https://obscure-lake-50234.herokuapp.com">Here</a>
+<a href="https://obscure-lake-50234.herokuapp.com">Here</a>
 
 
 
