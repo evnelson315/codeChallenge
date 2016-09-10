@@ -85,22 +85,16 @@ app.post('/api/new', function(req, res){
 
 	for (var i = 0; i < characters.length; i++) {
        		 if ( newcharacter.routeName === characters[i].routeName ) {
-           		console.log(newcharacter.routeName + "" + "is in your database");
-           		// res.json(false);
+           		// console.log(newcharacter.routeName + "" + "is in your database");
            		throw "exit";
-         			
-       		}
+         			}
 			else {
-				console.log("gets entered in your database");
-				
+				// console.log("gets entered in your database");
+				};
+			};
 
-   			};
-    // console.log(req.params.characters)
-};
-
-	characters.push(newcharacter);
-
-	res.json(newcharacter);
+		characters.push(newcharacter);
+		res.json(newcharacter);
 })
 //========================This the end of the code for no repeat posts ===================================
 
