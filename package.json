@@ -1,21 +1,40 @@
+// {
+//   "name": "Movie-express",
+//   "version": "1.0.0",
+//   "description": "",
+//   "main": "server.js",
+//   "dependencies": {
+//     "body-parser": "^1.15.0",
+//     "express": "^4.13.4"
+//   },
+//   "devDependencies": {},
+//   "scripts": {
+//     "test": "echo \"Error: no test specified\" && exit 1",
+//     "start": "node server.js"
+//   },
+//   "author": "Evan Nelson",
+//   "license": "ISC"
+//   },
+//   "engines": {
+//     "node": "5.3.0"
+//   }
+// }
+
 {
   "name": "Movie-express",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.0",
     "express": "^4.13.4"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "author": "Evan Nelson",
-  "license": "ISC"
-  }
   "engines": {
-    "node": "4.1.1"
+    "node": "5.3.0"
   }
 }
