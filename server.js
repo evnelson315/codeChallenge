@@ -74,22 +74,37 @@ app.delete('/api/:characters?', function(req, res){
     // console.log(req.params.characters)
 });
 
-
+//===========================This is the the start of the code for no repeat posts=======================
 // Create New Characters - takes in JSON input
 // app.post('/api/new', function(req, res){
 
 // 	var newcharacter = req.body;
 // 	newcharacter.routeName = newcharacter.name.replace(/\s+/g, '').toLowerCase()
+// 	console.log(newcharacter.routeName);
 
-// 	// console.log(newcharacter);
+
+// 	for (var i = 0; i < characters.length; i++) {
+//        		 if ( newcharacter.routeName === characters[i].routeName ) {
+//            		console.log(newcharacter.routeName + "" + "is in your database");
+//            		// res.json(false);
+         			
+//        		}
+// 			else {
+// 				console.log("gets entered in your database");
+				
+
+//    			};
+//     // console.log(req.params.characters)
+// };
 
 // 	characters.push(newcharacter);
 
 // 	res.json(newcharacter);
 // })
+//========================This the end of the code for no repeat posts ===================================
 
 
-//This is an alternative for posting a new movie with no duplicates
+//=========================This is safe code for add/post function===============================
 app.post('/api/new', function(req, res){
 
 	var newcharacter = req.body;
@@ -101,7 +116,7 @@ app.post('/api/new', function(req, res){
 
 	res.json(newcharacter);
 })
-
+//=============================End safe code for add/post function============================
 // Starts the server to begin listening 
 // =============================================================
 app.listen(PORT, function(){

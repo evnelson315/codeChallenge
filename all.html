@@ -17,7 +17,7 @@
 			<h1>Welcome</h1>
 			<h3>Your Home Movie Database</h3>
 			<hr>
-			<a href="/"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> Search Movies</button></a>
+			<a href="/"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> Search My Movies</button></a>
 			<a href="/add"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-plus"></span> Add New Movie</button></a>
 		</div>
 		<div class="row">
@@ -26,7 +26,7 @@
 
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title"><strong>Movie Database</strong></h3>
+						<h3 class="panel-title"><strong>All My Movies</strong></h3>
 					</div>
 					<div class="panel-body" id="wellSection">
 
@@ -54,8 +54,7 @@
 				$("#characterWell-" + i).append("<h3>Year: " + data[i].year + "</h4>");
 				$("#characterWell-" + i).append("<h3>Rating: " + data[i].rating + "</h4>");
 				$("#characterWell-" + i).append("<h3>Actors: " + data[i].actors + "</h4>");
-				$("#characterWell-" + i).append("<h3>Plot: " + data[i].genre + "</h4>");
-				// $("#characterWell-" + i).append("<h3>something goes here: " + data[i].forcePoints + "</h4>");	
+				$("#characterWell-" + i).append("<h3>Plot: " + data[i].genre + "</h4>");	
 			}
 		})
 
