@@ -76,12 +76,26 @@ app.delete('/api/:characters?', function(req, res){
 
 
 // Create New Characters - takes in JSON input
+// app.post('/api/new', function(req, res){
+
+// 	var newcharacter = req.body;
+// 	newcharacter.routeName = newcharacter.name.replace(/\s+/g, '').toLowerCase()
+
+// 	// console.log(newcharacter);
+
+// 	characters.push(newcharacter);
+
+// 	res.json(newcharacter);
+// })
+
+
+//This is an alternative for posting a new movie with no duplicates
 app.post('/api/new', function(req, res){
 
 	var newcharacter = req.body;
 	newcharacter.routeName = newcharacter.name.replace(/\s+/g, '').toLowerCase()
 
-	// console.log(newcharacter);
+	console.log(newcharacter);
 
 	characters.push(newcharacter);
 

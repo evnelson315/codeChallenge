@@ -75,12 +75,12 @@ console.log('success  deleted')
 			$.ajax({ 
 				method: "DELETE",
 				url: currentURL + "/api/" + searchedMovie
-
 			})
 			.done(function( data ) {
-				// console.log('success  deleted')
+				
 			});
-	
+			alert("movie deleted")
+			return false;
 		});	
 
 
