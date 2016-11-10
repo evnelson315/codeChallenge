@@ -27,8 +27,9 @@
 				    <input type="text" id="movie-input"><br> 
 				    
 				    <!-- This button will trigger our AJAX call -->
-				    <input id="findMovie" type="submit" value="Fill Out my Form">
-				   <!--  <button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"><input id="findMovie" type="submit"></span> Search My Movies</button> -->
+				    <button type="button" class="btn btn-danger btn-lg" input id="findMovie" type="submit">Fill Out my Form</button>
+				    <!-- <input id="findMovie" type="submit" value="Fill Out my Form"> -->
+				  
 				  </form> 
 
 				
@@ -138,7 +139,7 @@ return false;
 	});
 
 		
-		// Question: What does this code do? 
+		 
 		$('#addBtn').on("click", function(){
 
 			var newMovie = 
@@ -152,7 +153,7 @@ return false;
 
 			var currentURL = window.location.origin;
 
-			// Question: What does this code do??
+			
 			$.post( currentURL + "/api/new", newMovie)
 				.done(function(data){
 					console.log(data);

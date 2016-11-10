@@ -41,7 +41,7 @@ app.get('/all', function(req, res){
 app.get('/api/:characters?', function(req, res){
 
 	var chosen = req.params.characters;
-
+	
 	if(chosen){
 
 		for (var i=0; i <characters.length; i++){
@@ -80,6 +80,7 @@ app.post('/api/new', function(req, res){
 	var newcharacter = req.body;
 	newcharacter.routeName = newcharacter.name.replace(/\s+/g, '').toLowerCase()
 	console.log(newcharacter.routeName);
+	console.log(newcharacter);
 
 
 	for (var i = 0; i < characters.length; i++) {

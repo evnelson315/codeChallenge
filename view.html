@@ -97,7 +97,6 @@
 			var currentURL = window.location.origin;
 
 			$.get( currentURL + "/api/" + searchedMovie, function( data ) {
-
 				// console.log(data);
 				if(data == false){
 					$("#name").text("This is not in your database. ");
